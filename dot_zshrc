@@ -1,0 +1,79 @@
+# alias
+alias gits='git status'
+alias ls='gls --color=auto'
+alias ll='ls -l'
+alias la='ls -a'
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -i'
+alias dc='docker compose'
+alias g='git'
+alias gp='git pull'
+alias gl='goland'
+alias cc='cursor .'
+alias ga='git add .'
+alias gs='git status'
+alias gc='git commit -m'
+alias gd='git diff | less -R'
+alias ws='webstorm'
+alias diff='vimdiff'
+alias ghb='gh browse'
+alias gpush='git push origin HEAD'
+
+# 補完機能を有効にする
+autoload -Uz compinit && compinit
+
+# 小文字でも大文字ディレクトリ、ファイルを補完できるようにする
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# branch検索
+bindkey '^[' peco-git-switch-branch
+function peco-git-switch-branch() {
+  local src=$(git branch | peco --query "$LBUFFER")
+  if [ -n "$src" ]; then
+    BUFFER="git switch ${src}"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N peco-git-switch-branch
+
+# zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-history-substring-search
+# git clone https://github.com/zsh-users/zsh-history-substring-search ~/.zsh/zsh-history-substring-search
+source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# 補完強化
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 大文字小文字を区別しない
+zstyle ':completion:*' menu select # 補完時のハイライト
+bindkey '^[[Z' reverse-menu-complete # shift+tabで逆選択
+
+# lsの色変更
+export LS_COLORS='di=1;36:ln=35:ex=31'
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+#
+# direnv
+#
+
+eval "$(direnv hook zsh)"
+export DIRENV_LOG_FORMAT=
+
+#
+# starship
+#
+
+eval "$(starship init zsh)"
+
+#
+# dotenvにコミットしたくないlocalの設定
+#
+if [ -f ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+fi

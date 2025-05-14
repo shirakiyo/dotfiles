@@ -1,0 +1,18 @@
+typeset -gx -U path
+path=( \
+    ~/.local/share/aquaproj-aqua/bin(N-/) \
+    /opt/homebrew/bin(N-/) \
+    "$path[@]" \
+)
+
+#
+# aqua
+#
+
+export AQUA_GLOBAL_CONFIG=$HOME/.config/aquaproj-aqua/aqua.yaml
+
+#
+# Starship
+#
+
+export STARSHIP_CONFIG=$HOME/.config/starship.toml
