@@ -25,6 +25,9 @@ function cd () {
     builtin cd "$@" && ls;
 }
 
+# zshをEmacsのキーバインドで操作したい
+bindkey -e
+
 # 補完機能を有効にする
 autoload -Uz compinit && compinit
 
