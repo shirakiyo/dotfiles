@@ -20,5 +20,5 @@ packages:
 - name: twpayne/chezmoi@v2.62.4
 - name: peco/peco@v0.5.11
 - name: x-motemen/ghq@v1.8.0
-- name: ajeetdsouza/zoxide@v0.9.7
+- name: ajeetdsouza/zoxide@v0.9.8
 - name: bufbuild/buf@v1.54.0
