@@ -1,0 +1,75 @@
+format = """
+[#](bright-blue bold) $all$time$line_break\
+$character
+"""
+
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = true
+command_timeout = 10000
+
+[character]
+format = "[\\$](red bold) "
+
+[directory]
+truncation_length = 8
+truncate_to_repo = false
+fish_style_pwd_dir_length = 1
+use_logical_path = true
+style = 'bold yellow'
+
+[git_branch]
+format = 'git:\([$branch](cyan)\) '
+symbol = ''
+style = 'cyan'
+
+[git_status]
+conflicted = '🏳'
+ahead = '🏎💨'
+behind = '😰'
+diverged = '😵[⇡${ahead_count}](green)⇣${behind_count}'
+up_to_date = '✓'
+untracked = '🤷'
+stashed = '📦'
+modified = '📝'
+staged = '[++\($count\)](green)'
+renamed = '👅'
+deleted = '🗑'
+
+[git_state]
+disabled = false
+
+[aws]
+disabled = true
+
+[package]
+disabled = true
+
+[golang]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[buf]
+disabled = true
+
+[bun]
+disabled = true
+
+[time]
+disabled = false
+format = '[$time]($style)'
+time_format = "[%H:%M:%S]"
+utc_time_offset = "+9"
+style = 'white'
+
+[cmd_duration]
+show_milliseconds = true
+min_time = 500
+
