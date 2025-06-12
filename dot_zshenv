@@ -1,6 +1,7 @@
 typeset -gx -U path
 path=( \
     ~/.local/share/aquaproj-aqua/bin(N-/) \
+    ~/.npm-global/bin(N-/) \
     ~/.local/share/mise/shims(N-/) \
     /opt/homebrew/bin(N-/) \
     "$path[@]" \
