@@ -15,7 +15,7 @@ packages:
 - name: 1password/cli@v2.31.0
 - name: docker/compose@v2.37.2
 - name: direnv/direnv@v2.36.0
-- name: jdx/mise@v2025.6.5
+- name: jdx/mise@v2025.6.6
 - name: starship/starship@v1.23.0
 - name: twpayne/chezmoi@v2.62.7
 - name: peco/peco@v0.5.11
