@@ -98,7 +98,13 @@
       "mcp__figma-dev-mode-mcp-serve__get_image",
       "mcp__figma-dev-mode-mcp-serve__create_design_system_rules"
     ],
-    "deny": []
+    "deny": [],
+    "defaultMode": "plan"
   },
-  "model": "opus"
+  "model": "opus",
+  "feedbackSurveyState": {
+    "lastShownTime": 1754111112236
+  },
+  "$schema": "https://json.schemastore.org/claude-code-settings.json"
 }
+
